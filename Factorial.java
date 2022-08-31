@@ -15,7 +15,7 @@ public class Factorial {
         }
     }
 
-    public  void main(String[] args) {
+    public static void main(String[] args) {
         int num = 4;
         if (IterFactorial(num) == RecFactorial(num)){
         System.out.println("Loop method  = " + IterFactorial(num) + " and equals to recursional:  " + RecFactorial(num));

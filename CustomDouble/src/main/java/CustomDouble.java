@@ -40,34 +40,46 @@ public class CustomDouble {
         this.doublePart = doublePart;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CustomDouble that = (CustomDouble) o;
+
+        if (intPart != that.intPart) return false;
+        return Double.compare(that.doublePart, doublePart) == 0;
+    }
+
     @Override
     public int hashCode() {
-        return super.hashCode();
+        int result;
+        long temp;
+        result = intPart;
+        temp = Double.doubleToLongBits(doublePart);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    public CustomDouble sum(CustomDouble obj){
+    public CustomDouble add(CustomDouble obj){
         double sum =  this.toDouble() + obj.toDouble();
         CustomDouble result = new CustomDouble(sum);
         return result;
     }
 
-    public CustomDouble subtraction(CustomDouble obj){
+    public CustomDouble subtract(CustomDouble obj){
         double subtraction = this.toDouble() - obj.toDouble();
         CustomDouble result = new CustomDouble(subtraction);
         return result;
     }
-    public CustomDouble multiplication (CustomDouble obj){
+    public CustomDouble multiply(CustomDouble obj){
         double multiplication =  this.toDouble() * obj.toDouble();
         CustomDouble result = new CustomDouble(multiplication);
         return result;
     }
 
-    public CustomDouble division(CustomDouble obj){
+    public CustomDouble divide(CustomDouble obj){
         double division =  this.toDouble() / obj.toDouble();
         CustomDouble result = new CustomDouble(division);
         return result;

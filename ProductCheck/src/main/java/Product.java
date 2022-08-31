@@ -34,8 +34,7 @@ public class Product {
         setPrice(price);
     }
 
-    public void printProduct(){
-        System.out.println("Name of product: " + getProductName());
-        System.out.println("Price of product: " + getPrice());
+    public String printProduct(){
+       return "Name of product: " + getProductName() + "\n" + "Price of product: " + getPrice();
     }
 }

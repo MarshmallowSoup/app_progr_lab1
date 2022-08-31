@@ -29,21 +29,13 @@ public class Furniture {
         this.height = height;
     }
 
-    public int getWidth() {
-        return width;
-    }
+    public int getWidth() {return width;}
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    public void setWidth(int width) {this.width = width;}
 
-    public int getLength() {
-        return length;
-    }
+    public int getLength() {return length;}
 
-    public void setLength(int length) {
-        this.length = length;
-    }
+    public void setLength(int length) {this.length = length;}
 
 
     public Furniture() {
@@ -87,13 +79,27 @@ public class Furniture {
 
     public int furnitureVolume(){return height * width * length;}
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Furniture furniture = (Furniture) o;
+
+        if (price != furniture.price) return false;
+        if (height != furniture.height) return false;
+        if (width != furniture.width) return false;
+        if (length != furniture.length) return false;
+        return name != null ? name.equals(furniture.name) : furniture.name == null;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + price;
+        result = 31 * result + height;
+        result = 31 * result + width;
+        result = 31 * result + length;
+        return result;
     }
 }

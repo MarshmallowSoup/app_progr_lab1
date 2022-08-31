@@ -4,15 +4,6 @@ public class Storage {
     private Product newProduct;
     private int amount;
 
-    /*public Storage() {
-        Product = Product();
-        this.amount = 0;
-    }
-    public Storage(Product product, int amount) {
-        Product = product;
-        this.amount = amount;
-    }*/
-
     public Product getNewProduct() {
         return newProduct;
     }
@@ -43,8 +34,7 @@ public class Storage {
         setAmount(amount);
     }
 
-    public void printStorage(){
-        newProduct.printProduct();
-        System.out.println("Amount: " + getAmount());
+    public String printStorage(){
+        return newProduct.printProduct() + "\n" + "Amount: " + getAmount();
     }
 }

@@ -1,6 +1,5 @@
 public class Door {
     private String type;    //Types: RoomDoor, EntranceDoor, ArmoredDoor
-    private boolean isOpen;
     private int price;
 
 
@@ -19,7 +18,6 @@ public class Door {
             this.type = "ArmoredDoor";
             this.price = 1000;
         }
-
     }
 
     public int getPrice() {
@@ -38,16 +36,20 @@ public class Door {
         this.type = type;
     }
 
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    @Override
+        Door door = (Door) o;
+
+        if (price != door.price) return false;
+        return type != null ? type.equals(door.type) : door.type == null;
+    }
+
+
     public int hashCode() {
-        return super.hashCode();
+        int result = type != null ? type.hashCode() : 0;
+        result = 31 * result + price;
+        return result;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-
 }

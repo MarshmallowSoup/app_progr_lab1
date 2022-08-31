@@ -34,13 +34,19 @@ public class Window {
 
     public int windowPrice(){return windowSquare()*50;}
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Window window = (Window) o;
+
+        if (width != window.width) return false;
+        return height == window.height;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        int result = width;
+        result = 31 * result + height;
+        return result;
     }
 }

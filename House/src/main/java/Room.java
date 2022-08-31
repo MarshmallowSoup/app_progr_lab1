@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Room{
     private String name;  //types: Bedroom, Cabinet, Corridor, Armory
     private int priceSqMeter;
@@ -105,8 +106,8 @@ public class Room{
         this.name = "";
         this.entry = new Door();
         this.priceSqMeter = 0;
-        this.width = 10;
-        this.length = 8;
+        this.width = 0;
+        this.length = 0;
         this.bed = new Furniture();
         this.wardrobe = new Furniture();
         this.table = new Furniture();
@@ -183,21 +184,21 @@ public class Room{
         }
 
         public Room createRoom(){
-            Room obj = new Room();
+            System.out.println("What type of room do you want?(Bedroom, Cabinet, Corridor, Armory)");
+            Scanner in = new Scanner(System.in);
+            String name = in.next();
+            Room obj = new Room(name);
             return obj;
         }
 
-        public Room createCustomRoom(){
-            Room obj = new Room();
-            return obj;
-        }
-        public void printRoom(){
-            System.out.println("Name: " + this.getName());
-            System.out.println("Square: " + this.roomSquare());
-            System.out.println("Door: " + this.entry.getType());
-            System.out.println("Furniture: " + this.bed.getName() + " " + this.wardrobe.getName() + " " + this.table.getName() + " " + this.safe.getName());
-            System.out.println("Window Size: " + this.windows[0].getWidth() + "x" + this.windows[0].getHeight());
-            System.out.println("Total Price: " + this.roomPrice());
+        public String printRoom(){
+            return "Name: " + this.getName() + '\n' +
+                    "Square: " + this.roomSquare() + '\n' +
+                    "Door: " + this.entry.getType() + "Furniture: " + this.bed.getName() + " "
+                    + this.wardrobe.getName() + " "
+                    + this.table.getName() + " " + this.safe.getName() + '\n'
+                    + "Window Size: " + this.windows[0].getWidth() + "x" + this.windows[0].getHeight() + '\n'
+                    + "Total Price: " + this.roomPrice();
         }
 
     }
