@@ -8,9 +8,13 @@ public class CustomDouble {
         this.doublePart = 0;
     }
 
-    public CustomDouble(int numerator, double denominator) {
-        this.intPart = numerator;
-        this.doublePart = denominator;
+    public CustomDouble(int intPart, double doublePart) {
+        this.intPart = intPart;
+        if (doublePart < 1){
+            this.doublePart = doublePart;
+        }else {
+            System.out.println("Double part must be less than 1!!");
+        }
     }
 
     public CustomDouble(CustomDouble obj){
