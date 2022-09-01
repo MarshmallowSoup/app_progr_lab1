@@ -17,11 +17,6 @@ public class CustomDouble {
         }
     }
 
-    public CustomDouble(CustomDouble obj){
-        this.intPart = obj.intPart;
-        this.doublePart = obj.doublePart;
-    }
-
     public CustomDouble(double obj){
         this.intPart = (int)obj;
         this.doublePart = obj - this.intPart;

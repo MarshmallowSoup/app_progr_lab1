@@ -54,4 +54,12 @@ public class House{
         }
         return house;
     }
+
+    public String[] housePrint(){
+        String[] house = new String[this.roomAmount];
+        for (int i = 0; i < this.roomAmount; i++){
+            house[i] = this.rooms[i].printRoom();
+        }
+        return house;
+    }
 }
