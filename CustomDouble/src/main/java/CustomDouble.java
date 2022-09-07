@@ -79,9 +79,17 @@ public class CustomDouble {
     }
 
     public CustomDouble divide(CustomDouble obj){
-        double division =  this.toDouble() / obj.toDouble();
-        CustomDouble result = new CustomDouble(division);
-        return result;
+
+        if(obj.toDouble() == 0){
+            CustomDouble result = new CustomDouble(0);
+            System.out.println("You can't divide by zero!!!");
+            return result;
+        }
+        else{
+            double division =  this.toDouble() / obj.toDouble();
+            CustomDouble result = new CustomDouble(division);
+            return result;
+        }
     }
 
     public double toDouble(){

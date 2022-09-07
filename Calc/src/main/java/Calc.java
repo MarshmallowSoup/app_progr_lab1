@@ -27,8 +27,12 @@ public class Calc {
                 System.out.println(a1 + " " + operator + " " + b1 + " = " + result.toDouble());
                 break;
             case '/':
-                result = a.divide(b);
-                System.out.println(a1 + " " + operator + " " + b1 + " = " + result.toDouble());
+                if(b.toDouble() == 0){
+                    System.out.println("You can't divide by zero!!!");
+                }else {
+                    result = a.divide(b);
+                    System.out.println(a1 + " " + operator + " " + b1 + " = " + result.toDouble());
+                }
                 break;
             default:
                 System.out.println("invalid operator try again");
